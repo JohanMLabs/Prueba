@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ListarCompras
-    Created on : 12/07/2019, 11:10:54 AM
+    Document   : ListarBodega
+    Created on : 12/07/2019, 02:40:49 PM
     Author     : blanclabs
 --%>
 
@@ -84,7 +84,7 @@
     ResultSet rs;
     puente = conexion.obtenerConexion().createStatement();
     // rs = puente.executeQuery("select idUsuario,Usuario,Nombres,Apellidos,Telefono,Correo,Rol from usuarios where Rol = 'cliente' and Estado=1;");
-    rs = puente.executeQuery(" SELECT `IdCompra`, `Nombre`, `Descripcion`, `FechaCompra` FROM `compras`;");
+    rs = puente.executeQuery(" SELECT `IdBodega`, `Ubicacion`, `Descripcion`, `FechaIngreso` FROM `bodega`;");
 %>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -127,9 +127,9 @@
         <div class="dropdown">
   <a onclick="myFunction1()" class="dropbtn">Listas</a>
   <div id="myDropdown2" class="dropdown-content">
-      <a href="ListarHardware.jsp">Listas Hardware</a>
-      <a href="ListarSoftware.jsp">Listas Software</a>
-      <a href="ListarCompras.jsp">Listas Compra</a>
+      <a href="ListarHardware.jsp">Listar Hardware</a>
+      <a href="ListarSoftware.jsp">Listar Software</a>
+      <a href="ListarCompras.jsp">Listar Compra</a>
       <a href="ListarUsuario.jsp">Listar Usuario</a>
   </div>
       </li>
@@ -143,16 +143,16 @@
     </form>
   </div>
 </nav>
-<h1 class="text-center">Listar Compras</h1><br>
+<h1 class="text-center">Listar Bodegas</h1><br>
 <a class="add-proj brd-rd5" href="RegistrarHardware.jsp"  data-target=".bs-example-modal-sm" title="Add Project">+ Agregar</a>
 <form action="Compras" method="POST">
     <table id="datatable-keytable" class="table table-striped table-bordered" style="width: 100%;">
         <thead>
             <tr>
-                <td style="border: 3px;border-bottom-color: #007bff;" class="text-center">IdCompra</td>
-                <td style="border: 3px;border-bottom-color: #007bff;" class="text-center">Nombre</td>
+                <td style="border: 3px;border-bottom-color: #007bff;" class="text-center">IdBodega</td>
+                <td style="border: 3px;border-bottom-color: #007bff;" class="text-center">Ubicacion</td>
                 <td style="border: 3px;border-bottom-color: #007bff;" class="text-center">Descripción</td>
-                <td style="border: 3px;border-bottom-color: #007bff;" class="text-center">FechaCompra</td>
+                <td style="border: 3px;border-bottom-color: #007bff;" class="text-center">FechaIngreso</td>
                 
 
             </tr>                    
@@ -164,14 +164,14 @@
             %>
 
             <tr>
-                <td class="text-center"><%= rs.getString("IdCompra")%></td>
-                <td class="text-center"><%= rs.getString("Nombre")%></td>
+                <td class="text-center"><%= rs.getString("IdBodega")%></td>
+                <td class="text-center"><%= rs.getString("Ubicacion")%></td>
                 <td class="text-center"><%= rs.getString("Descripcion")%></td>
-                <td class="text-center"><%= rs.getString("FechaCompra")%></td>
+                <td class="text-center"><%= rs.getString("FechaIngreso")%></td>
               
                 <td class="text-center">
-                    <a class="btn btn-warning btnEditarHard" data-id="<%=rs.getString("IdCompra")%>"><i class="fa fa-pencil"></i> Editar</a>
-                    <a class="btn btn-danger btnEliminarHard" data-id="<%=rs.getString("IdCompra")%>"><i class="fa fa-trash-o"></i> Eliminar</a>
+                    <a class="btn btn-warning btnEditarHard" data-id="<%=rs.getString("IdBodega")%>"><i class="fa fa-pencil"></i> Editar</a>
+                    <a class="btn btn-danger btnEliminarHard" data-id="<%=rs.getString("IdBodega")%>"><i class="fa fa-trash-o"></i> Eliminar</a>
 
                 </td>
             </tr>

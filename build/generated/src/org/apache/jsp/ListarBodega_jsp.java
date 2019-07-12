@@ -3,11 +3,15 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.ResultSet;
 import Config.Conexion;
+import java.util.ArrayList;
+import java.util.List;
+import DAO.HardwareDAO;
+import VO.HardwareVO;
 
-public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class ListarBodega_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -44,6 +48,13 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -119,7 +130,7 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
     ResultSet rs;
     puente = conexion.obtenerConexion().createStatement();
     // rs = puente.executeQuery("select idUsuario,Usuario,Nombres,Apellidos,Telefono,Correo,Rol from usuarios where Rol = 'cliente' and Estado=1;");
-    rs = puente.executeQuery("SELECT `IdUsuario`, `Nombre`, `RolFK`, `DepartamentoFK` FROM `usuario`;");
+    rs = puente.executeQuery(" SELECT `IdBodega`, `Ubicacion`, `Descripcion`, `FechaIngreso` FROM `bodega`;");
 
       out.write("\n");
       out.write("\n");
@@ -163,9 +174,10 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        <div class=\"dropdown\">\n");
       out.write("  <a onclick=\"myFunction1()\" class=\"dropbtn\">Listas</a>\n");
       out.write("  <div id=\"myDropdown2\" class=\"dropdown-content\">\n");
-      out.write("      <a href=\"ListarHardware.jsp\">Listas Hardware</a>\n");
-      out.write("      <a href=\"ListarSoftware.jsp\">Listas Software</a>\n");
-      out.write("      <a href=\"ListarCompras.jsp\">Listas Compra</a>\n");
+      out.write("      <a href=\"ListarHardware.jsp\">Listar Hardware</a>\n");
+      out.write("      <a href=\"ListarSoftware.jsp\">Listar Software</a>\n");
+      out.write("      <a href=\"ListarCompras.jsp\">Listar Compra</a>\n");
+      out.write("      <a href=\"ListarUsuario.jsp\">Listar Usuario</a>\n");
       out.write("  </div>\n");
       out.write("      </li>\n");
       out.write("     \n");
@@ -178,16 +190,16 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("    </form>\n");
       out.write("  </div>\n");
       out.write("</nav>\n");
-      out.write("<h1 class=\"text-center\">Listar Usuarios</h1><br>\n");
+      out.write("<h1 class=\"text-center\">Listar Bodegas</h1><br>\n");
       out.write("<a class=\"add-proj brd-rd5\" href=\"RegistrarHardware.jsp\"  data-target=\".bs-example-modal-sm\" title=\"Add Project\">+ Agregar</a>\n");
-      out.write("<form action=\"Usuario\" method=\"POST\">\n");
+      out.write("<form action=\"Compras\" method=\"POST\">\n");
       out.write("    <table id=\"datatable-keytable\" class=\"table table-striped table-bordered\" style=\"width: 100%;\">\n");
       out.write("        <thead>\n");
       out.write("            <tr>\n");
-      out.write("                <td style=\"border: 3px;border-bottom-color: #007bff;\" class=\"text-center\">IdUsuario</td>\n");
-      out.write("                <td style=\"border: 3px;border-bottom-color: #007bff;\" class=\"text-center\">Nombre</td>\n");
-      out.write("                <td style=\"border: 3px;border-bottom-color: #007bff;\" class=\"text-center\">RolFK</td>\n");
-      out.write("                <td style=\"border: 3px;border-bottom-color: #007bff;\" class=\"text-center\">DepartamentoFK</td>\n");
+      out.write("                <td style=\"border: 3px;border-bottom-color: #007bff;\" class=\"text-center\">IdBodega</td>\n");
+      out.write("                <td style=\"border: 3px;border-bottom-color: #007bff;\" class=\"text-center\">Ubicacion</td>\n");
+      out.write("                <td style=\"border: 3px;border-bottom-color: #007bff;\" class=\"text-center\">Descripción</td>\n");
+      out.write("                <td style=\"border: 3px;border-bottom-color: #007bff;\" class=\"text-center\">FechaIngreso</td>\n");
       out.write("                \n");
       out.write("\n");
       out.write("            </tr>                    \n");
@@ -202,24 +214,24 @@ public final class ListarUsuario_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\n");
       out.write("            <tr>\n");
       out.write("                <td class=\"text-center\">");
-      out.print( rs.getString("IdUsuario"));
+      out.print( rs.getString("IdBodega"));
       out.write("</td>\n");
       out.write("                <td class=\"text-center\">");
-      out.print( rs.getString("Nombre"));
+      out.print( rs.getString("Ubicacion"));
       out.write("</td>\n");
       out.write("                <td class=\"text-center\">");
-      out.print( rs.getString("RolFK"));
+      out.print( rs.getString("Descripcion"));
       out.write("</td>\n");
       out.write("                <td class=\"text-center\">");
-      out.print( rs.getString("DepartamentoFK"));
+      out.print( rs.getString("FechaIngreso"));
       out.write("</td>\n");
       out.write("              \n");
       out.write("                <td class=\"text-center\">\n");
       out.write("                    <a class=\"btn btn-warning btnEditarHard\" data-id=\"");
-      out.print(rs.getString("IdUsuario"));
+      out.print(rs.getString("IdBodega"));
       out.write("\"><i class=\"fa fa-pencil\"></i> Editar</a>\n");
       out.write("                    <a class=\"btn btn-danger btnEliminarHard\" data-id=\"");
-      out.print(rs.getString("IdUsuario"));
+      out.print(rs.getString("IdBodega"));
       out.write("\"><i class=\"fa fa-trash-o\"></i> Eliminar</a>\n");
       out.write("\n");
       out.write("                </td>\n");

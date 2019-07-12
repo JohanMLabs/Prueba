@@ -77,7 +77,7 @@
     ResultSet rs;
     puente = conexion.obtenerConexion().createStatement();
     // rs = puente.executeQuery("select idUsuario,Usuario,Nombres,Apellidos,Telefono,Correo,Rol from usuarios where Rol = 'cliente' and Estado=1;");
-    rs = puente.executeQuery(" SELECT `IdUsuario`, `Nombre`, `RolFK`, `DepartametoFK` FROM `usuario`  ;");
+    rs = puente.executeQuery("SELECT `IdUsuario`, `Nombre`, `RolFK`, `DepartamentoFK` FROM `usuario`;");
 %>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -120,9 +120,10 @@
         <div class="dropdown">
   <a onclick="myFunction1()" class="dropbtn">Listas</a>
   <div id="myDropdown2" class="dropdown-content">
-      <a href="ListarHardware.jsp">Listas Hardware</a>
-      <a href="ListarSoftware.jsp">Listas Software</a>
-      <a href="ListarCompras.jsp">Listas Compra</a>
+      <a href="ListarHardware.jsp">Listar Hardware</a>
+      <a href="ListarSoftware.jsp">Listar Software</a>
+      <a href="ListarCompras.jsp">Listar Compra</a>
+      <a href="ListarUsuario.jsp">Listar Usuario</a>
   </div>
       </li>
      

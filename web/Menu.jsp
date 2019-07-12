@@ -104,6 +104,7 @@
       <a href="ListarHardware.jsp">Listas Hardware</a>
       <a href="ListarSoftware.jsp">Listas Software</a>
       <a href="ListarCompras.jsp">Listas Compra</a>
+      <a href="ListarUsuario.jsp">Listar Usuario</a>
   </div>
       </li>
      

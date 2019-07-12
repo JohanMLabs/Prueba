@@ -84,7 +84,7 @@
     ResultSet rs;
     puente = conexion.obtenerConexion().createStatement();
     // rs = puente.executeQuery("select idUsuario,Usuario,Nombres,Apellidos,Telefono,Correo,Rol from usuarios where Rol = 'cliente' and Estado=1;");
-    rs = puente.executeQuery(" SELECT `IdCompra`, `Nombre`, `Descripcion`, `FechaCompra` FROM `compras`  ;");
+    rs = puente.executeQuery(" SELECT `IdCompra`, `Nombre`, `Descripcion`, `FechaCompra` FROM `compras`;");
 %>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -130,6 +130,7 @@
       <a href="ListarHardware.jsp">Listas Hardware</a>
       <a href="ListarSoftware.jsp">Listas Software</a>
       <a href="ListarCompras.jsp">Listas Compra</a>
+      <a href="ListarUsuario.jsp">Listar Usuario</a>
   </div>
       </li>
      
