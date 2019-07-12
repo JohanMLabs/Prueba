@@ -1,0 +1,21 @@
+SMAP
+ListarHardware_jsp.java
+JSP
+*S JSP
+*F
++ 0 ListarHardware.jsp
+ListarHardware.jsp
+*L
+5,45:51
+49,28:96
+77,2:125
+78,3:127
+81,14:130,3
+95:172
+96,2:173,3
+98,4:179
+102,2:184
+103,139:186
+241,4:324,2
+245:332,3
+*E
